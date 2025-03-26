@@ -52,6 +52,12 @@ Page({
     })
   },
 
+  goToEditPage() {
+    wx.navigateTo({
+      url: '/pages/edit/edit'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -129,7 +135,7 @@ Page({
           title: prize.text,
           duration: 3000,
           mask: true,
-        })
+        });
       };
 
       // 开始转
@@ -137,8 +143,22 @@ Page({
 
       // 模拟后台返回数据
       setTimeout(function () {
-        // 随机一个奖品
-        var prizeIndex = utils.getRandom(slicePrizes.length - 1);
+        // 根据权重随机选择一个奖品
+        var totalWeight = 0;
+        for (var i = 0; i < slicePrizes.length; i++) {
+          totalWeight += slicePrizes[i].weight;
+        }
+        var randomNum = Math.random() * totalWeight;
+        var currentWeight = 0;
+        var prizeIndex = 0;
+        for (var i = 0; i < slicePrizes.length; i++) {
+          currentWeight += slicePrizes[i].weight;
+          if (randomNum < currentWeight) {
+            prizeIndex = i;
+            break;
+          }
+        }
+
         // 计算奖品角度
         animation.stopTo(prizeIndex);
       }, 3000);

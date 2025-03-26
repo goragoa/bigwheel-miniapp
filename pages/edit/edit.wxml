@@ -1,0 +1,16 @@
+<view class="container">
+  <!-- 编辑选项 -->
+  <view class="section">
+    <text>编辑选项</text>
+    <view wx:for="{{slicePrizes}}" wx:key="*this">
+      <input placeholder="请输入选项名称" value="{{item.text}}" bindinput="onOptionInput" data-index="{{index}}"/>
+      <input placeholder="请输入选项图片路径" value="{{item.img}}" bindinput="onImageInput" data-index="{{index}}"/>
+      <input placeholder="请输入选项权重" value="{{item.weight}}" bindinput="onWeightInput" data-index="{{index}}"/>
+    </view>
+    <button bindtap="addOption">添加选项</button>
+    <button bindtap="removeOption">删除最后一个选项</button>
+  </view>
+
+  <!-- 保存按钮 -->
+  <button bindtap="saveSettings">保存设置</button>
+</view>
