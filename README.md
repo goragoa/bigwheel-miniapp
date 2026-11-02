@@ -323,3 +323,10 @@ GitHub 地址: https://github.com/qiaohhgz/bigwheel-miniapp
 > IT实战联盟是集产品、UI设计、前后端、架构、大数据和AI人工智能等为一体的实战交流服务平台！联盟嘉宾都为各互联网公司项目的核心成员，联盟主旨是“让实战更简单”，欢迎来撩~~~
 
 > 我们的网站: [http://100boot.cn](http://100boot.cn)
+
+### 本地运行
+
+1. 下载并安装[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)。
+2. 打开微信开发者工具，选择「导入项目」，目录选择本项目根目录（包含 `app.json`、`project.config.json` 的那一层）。
+3. 导入时在「AppID」处填入自己的小程序 AppID，也可以在导入后修改 `project.config.json` 里的 `appid` 字段。
+4. 导入完成即可在模拟器中预览；如需真机预览，点击工具栏的「预览」并用微信扫码。
